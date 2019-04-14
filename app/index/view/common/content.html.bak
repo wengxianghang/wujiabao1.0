@@ -1,0 +1,300 @@
+		<!--第一个广告条-->
+		<div class="index_banner">
+			<img src="__STATIC__/images/05.png" style="width:100%;height:100%">
+		</div>
+
+
+		<!--第一个衣服块-->
+		<div class="index_dress">
+
+			<div class="index_dress_top">衣服</div>
+			<div class="index_dress_center" style="margin-right:15px">
+
+				<!--点击ajax请求块-->
+				<a href="#">上衣</a>&nbsp;&nbsp;&nbsp;<a href="#">毛衣</a>&nbsp;&nbsp;&nbsp;
+				<a href="#">裤子</a>&nbsp;&nbsp;&nbsp;<a href="#">衬衫</a>
+
+			</div>
+
+			<div class="index_dress_bottom">
+
+				<!--鼠标移动到div 隐藏事件的div-->
+
+				<!--第一批1-5-->
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/02.jpg" class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/01.jpg"class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/03.jpg"class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/04.jpg" class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/05.jpg" class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+
+
+				<!--第二批6-9-->
+
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/04.jpg"  class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/03.jpg"  class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/02.jpg" class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+				<div class="index_dress_bottom_left">
+					<img src="__STATIC__/images/01.jpg" class="two">
+					<span>
+						<p style="font-size:15px;color:#ff0000;text-align:left;padding-top:18px;padding-left:5px;" >￥358.00</p>
+						<p style="color:#ff0000;text-align:left;padding-left:75px;">包邮<br></p>
+						<p style="padding-top:12px;text-align:left;padding-left:5px;font-size:12px;line-height:14px;
+							word-wrap:break-word">
+							2019新款短袖t恤女装大码T血纯棉宽松胖mm上衣百搭时尚体恤ins潮
+						</p>
+						<p style="padding-top:8px;text-align:left;padding-left:5px;font-size:9px;
+							word-wrap:break-word">
+							爱依服<a href="#" style="color:#666666;text=right;margin-left:65%">福建莆田</a>
+						</p>
+					</span>
+				</div>
+
+				<!--查看更多div-->
+				<div class="index_dress_bottom_lefts">
+					<div class="index_dress_bottom_lefts_top">
+						<img src="__STATIC__/images/04.png" class="two">	
+					</div>
+					<div class="index_dress_bottom_lefts_bottom">
+						<img src="__STATIC__/images/look.jpg" class="two">
+					</div>				
+				</div>
+
+			</div>
+		</div>
+
+		
+		<!--衣服板块下:广告条-->
+		<div class="index_dress_banner">
+			<img src="__STATIC__/images/05.png" class="two">
+		</div>
+
+
+		<!--搭配-->
+		<div class="index_collocation">
+
+			<div class="index_collocation_top">搭配</div>
+
+			<!--卡片js块div-->
+			<div class="index_collocation_center">
+
+			       <!--第一个js块-->
+			       <div class="index_collocation_center_left">
+				<div class="banners">
+				     <ul class="banners_pic" id="banners_pic">
+					<li class="currents"><img src="__STATIC__/images/05.jpg" class="ones"></li>
+					<li class="pics"><img src="__STATIC__/images/02.jpg" class="ones"></li>
+					<li class="pics"><img src="__STATIC__/images/03.jpg" class="ones"></li>
+				    </ul>
+				    <ol id="buttons">
+					<li class="currents"></li>
+					<li class="buts"></li>
+					<li class="buts"></li>
+				    </ol>
+				    <div class="preNext" id="pre"></div>
+				    <div class="preNext"  id="next"></div>
+				</div>
+			   </div>
+			 <div class="index_collocation_center_left">
+				<div class="bannerss">
+				     <ul class="bannerss_pic" id="bannerss_pic">
+					<li class="currentss"><img src="__STATIC__/images/05.jpg" class="oness"></li>
+					<li class="picss"><img src="__STATIC__/images/02.jpg" class="oness"></li>
+					<li class="picss"><img src="__STATIC__/images/03.jpg" class="oness"></li>
+					<li class="picss"><img src="__STATIC__/images/02.jpg" class="oness"></li>
+				    </ul>
+				    <ol id="buttonss">
+					<li class="currentss"></li>
+					<li class="butss"></li>
+					<li class="butss"></li>
+					<li class="butss"></li>
+				    </ol>
+				    <div class="preNexts" id="pres"></div>
+				    <div class="preNexts"  id="nexts"></div>
+				</div>
+			</div>
+			 <div class="index_collocation_center_left">
+				<div class="bannersss">
+				     <ul class="bannersss_pic" id="bannersss_pic">
+					<li class="currentsss"><img src="__STATIC__/images/05.jpg" class="onesss"></li>
+					<li class="picsss"><img src="__STATIC__/images/02.jpg" class="onesss"></li>
+					<li class="picsss"><img src="__STATIC__/images/03.jpg" class="onesss"></li>
+					<li class="picsss"><img src="__STATIC__/images/02.jpg" class="onesss"></li>
+				    </ul>
+				    <ol id="buttonsss">
+					<li class="currentsss"></li>
+					<li class="butsss"></li>
+					<li class="butsss"></li>
+					<li class="butsss"></li>
+				    </ol>
+				    <div class="preNextss" id="press"></div>
+				    <div class="preNextss"  id="nextss"></div>
+				</div>
+			</div>
+
+			       <!--第一个js块-->
+			     <div class="index_collocation_center_left">
+				<div class="bannerssss">
+				     <ul class="bannerssss_pic" id="bannerssss_pic">
+					<li class="currentssss"><img src="__STATIC__/images/05.jpg" class="onessss"></li>
+					<li class="picssss"><img src="__STATIC__/images/02.jpg" class="onessss"></li>
+					<li class="picssss"><img src="__STATIC__/images/03.jpg" class="onessss"></li>
+				    </ul>
+				    <ol id="buttonssss">
+					<li class="currentssss"></li>
+					<li class="butssss"></li>
+					<li class="butssss"></li>
+				    </ol>
+				    <div class="preNextsss" id="presss"></div>
+				    <div class="preNextsss"  id="nextsss"></div>
+				</div>
+			</div>
+			<div class="index_collocation_center_lefts" style="clear:both;"></div>
+		</div>
+	      </div>
+
+		<!--搭配板块下:广告条-->
+		<div class="index_collocation_banner">
+			<img src="__STATIC__/images/05.png" style="width:100%;height:100%">
+		</div>
+
+		<!--鞋子板块-->
+		<div class="index_shoes">
+
+			<div class="index_shoes_top">鞋子</div>
+
+			<div class="index_shoes_bottom">
+			       <div class="index_shoes_left">
+				<img src="__STATIC__/images/21.jpg" class="two">
+			      </div>
+			       <div class="index_shoes_right">
+				<div class="index_shoes_right_top">
+					<div class="index_shoes_right_top_left">
+						<img src="__STATIC__/images/25.jpg" class="two">	
+					</div>
+					<div class="index_shoes_right_top_right">
+						<img src="__STATIC__/images/22.jpg" class="two">
+					</div>
+				</div>
+				<div class="index_shoes_right_bottom">
+					<div class="index_shoes_right_bottom_left">
+						<img src="__STATIC__/images/23.jpg" class="two">
+					</div>
+					<div class="index_shoes_right_bottom_right">
+						<img src="__STATIC__/images/24.jpg" class="two">	
+					</div>
+				</div>
+			      </div>
+			</div>
+		</div>

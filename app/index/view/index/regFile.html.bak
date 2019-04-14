@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+{include file="common/title" /}
+  <title>Document</title>
+ <style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			text-decoration:none;
+		}
+		body{
+			font-size:15px;
+			font-familt:"黑体";
+		}	
+		.reg{
+			width:100%;
+		}
+		.reg_top{
+			width:100%;
+			height:120px;
+			background-color:#000000;
+		}
+		.reg_center{
+			width:100%;
+			height:570px;
+			background-color:#ff0000;
+		}
+		.reg_form{
+			width:22%;
+			height:320px;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-top:-13%;
+			margin-left:-10.5%;
+			background-color:#ffffff;
+		}
+		.reg_form_top{
+			margin-top:15px;
+			margin-left:15px;
+		}
+		.reg_form_center{
+			width:100%;
+			margin-top:18px;
+			margin-left:17%;
+		}
+		.reg_form_center input[type=text]{
+			width:120%;
+			height:36px;
+		}
+		.reg_form_center input[type=password]{
+			width:120%;
+			height:36px;
+		}
+		.reg_form_center input[type=submit]{
+			width:122%;
+			height:40px;
+			background-color:#000000;
+			border:0px;
+			color:#ffffff;
+		}
+		span{
+			color:#ff0000;
+			font-size:8px;
+			display:none;
+		}
+  </style>
+ </head>
+ <body>
+    <div class="reg">
+		<div class="reg_top"></div>
+		<div class="reg_center">
+			<div class="reg_form">
+				<div class="reg_form_top"><p style="font-size:16px;">注册账号</p></div>
+				<div class="reg_form_center">
+					<form action="regfileChk" method="POST" onsubmit="return checkThis()">
+						<table>
+							<tr><td><input type="hidden" name="email" value='{$email}'></td></tr>
+							<tr><td><input type="text" name="username" id="username" placeholder="用户名" onblur="checkUsername()"></td></tr>
+							<tr><td style="color:#ff0000;font-size:8px" id="warning">&nbsp;</td></tr>
+							<tr><td><input type="password" name="password" id="password" placeholder="密码" onblur="checkPsw1()"></td></tr>
+							<tr><td style="color:#ff0000;font-size:8px;">&nbsp;<span id="t2">*不足六位</span></td></tr>
+							<tr><td><input type="password" name="passwords" id="passwords" placeholder="确认密码" onblur="checkPsw2()"></td></tr>
+							<tr><td style="color:#ff0000;font-size:8px">&nbsp;<span id="t3">*与密码不符</span></td></tr>
+							<tr><td><input type="submit" id="submit" value="注 册"></td></tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--版权-->
+		{include file="common/footer" /}
+  </div>
+ </body>
+ <script>
+
+ 		//获取控件
+		var username=document.getElementById('username');
+
+
+		//实例化引入XHR请求
+		username.onblur=function(){
+			var Checkusername=document.getElementById('username').value;
+			if(Checkusername.length<6){
+				var warnings=document.getElementById('warning');
+				warnings.innerHTML='不足六位字符';
+				document.getElementById('submit').disabled=true;
+			}else{
+				var xhr=new XMLHttpRequest();
+
+				xhr.open("POST","{:url('Index/Base/loginCheck_username')}");
+
+				var data="username="+document.getElementById('username').value;
+				xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+				xhr.send(data);
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState === 4 && xhr.status === 200){
+						if(xhr.responseText == 1){
+							//用户不存在就显示
+							var warning=document.getElementById('warning');
+							warning.innerHTML='用户以注册';
+							document.getElementById('submit').disabled=true;
+						}else{
+							var warning=document.getElementById('warning');
+							warning.innerHTML="&nbsp";
+							document.getElementById('submit').disabled=false;
+						}
+					}
+				}
+			}
+		}
+
+		function checkUsername(){
+			if(document.forms[0].username.value.length<6){
+				document.getElementById("t2").style.display="inline";
+				return false;
+			}else{
+				document.getElementById("t2").style.display="none";
+				return true;
+			}
+		}
+		function checkPsw1(){
+			if(document.forms[0].password.value.length<6){
+				document.getElementById("t2").style.display="inline";
+				return false;
+			}else{
+				document.getElementById("t2").style.display="none";
+				return true;
+			}
+		}
+		function checkPsw2(){
+			if((document.forms[0].passwords.value!=document.forms[0].password.value) || (document.forms[0].passwords.value.length<6)){
+				document.getElementById("t3").style.display="inline";
+				return false;
+			}else{
+				document.getElementById("t3").style.display="none";
+				return true;
+			}
+		}
+		function checkThis(){
+			var c1=checkUsername();
+			var c2=checkPsw1();
+			var c3=checkPsw2();
+
+			return c1 && c2 && c3 ;
+		}
+ </script>
+</html>

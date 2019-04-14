@@ -1,0 +1,163 @@
+<?php
+namespace app\index\controller;
+header("Content-Type:text/html; charset=utf-8");
+
+use think\Request;	
+use think\Db;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once '../extend/PHPMailer/src/PHPMailer.php';
+require_once '../extend/PHPMailer/src/Exception.php';
+require_once '../extend/PHPMailer/src/SMTP.php';
+
+class Index extends Base
+{
+	/*主页控制器*/
+    public function index()
+    {
+		return $this->fetch('index',[
+			'title' => '无价宝官网'	
+		]);
+    }
+
+	/*登录页控制器*/
+    public function login()
+    {
+		return $this->fetch('login',[
+			'title' => '登录页面'	
+		]);
+    }
+	/*注册页控制器*/
+    public function reg()
+    {
+		return $this->fetch('reg',[
+			'title' => '注册页面'	
+		]);
+    }
+
+	/*email邮箱验证是否注册*/
+	public function email(Request $request)
+	{
+		$email=$request->post('email');
+		$res=Db::table('user')->where([
+			'email' =>$email
+		])->find();
+
+		if(empty($res)){
+			echo 1;
+		}else{
+			echo 0;
+		}
+	}
+	/*发送邮箱验证码*/
+	public function emailCode(Request $request)
+	{
+		$email=$request->post('email');
+
+		require_once '../extend/PHPMailer/src/PHPMailer.php';
+		require_once '../extend/PHPMailer/src/Exception.php';
+		require_once '../extend/PHPMailer/src/SMTP.php';
+		$mail=new PHPMailer();
+
+		try {
+			$mail->isSMTP();                                           
+			//开启阿里云的stmp服务做为发送验证码的服务端
+			$mail->Host       = 'smtp.aliyun.com';  
+			$mail->SMTPAuth   = true;                                   
+			$mail->CharSet = "UTF-8";
+			$mail->Username   = 'cainiao_123456@aliyun.com';                    
+			$mail->Password   = 'wxh123456';                               
+			$mail->setFrom('cainiao_123456@aliyun.com', 'aliyun');
+
+			//用户填写的Email的传到哪里作为客户端接收验证码
+			$mail->addAddress($email, '1111');     
+			$mail->addReplyTo('cainiao_123456@aliyun.com', 'aliyun');
+
+			$mail->isHTML(true);                                 
+			$mail->Subject = '无价宝注册账号验证码';
+			$code=mt_rand(999,9999);
+			$mail->Body   =$code ;
+
+			$mail->send();
+			echo $code;
+		} catch (Exception $e) {
+			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+		}
+	}
+
+	/*过渡email信息到填写资料板块给regfileChk操作插入数据库*/
+	public function regChk(Request $request)
+	{
+		$email=$request->post('email');
+		return $this->fetch('regFile',[
+			'title' => '注册页面',
+			'email' => $email	
+		]);
+	}
+	/*插入数据库*/
+	public function regfileChk(Request $request)
+	{
+		$username=$request->post('username');
+		$password=md5($request->post('password'));
+		$email=$request->post('email');
+		/*验证用户是否是通过url漏洞过来的*/
+		if($email==null){
+			return $this->fetch('reg',[
+				'warn' => '小老弟先验证邮箱'	
+			]);
+		}else{
+			/*插入数据库*/
+			$sql="insert into user(username,password,email) values(:username,:password,:email)";
+			$res=Db::execute($sql,[
+				'username' => $username,
+				'password' => $password,
+				'email' => $email
+			]);
+			
+			if($res){
+				return $this->fetch('login');
+			}else{
+				return $this->fetch('reg');
+			}
+		}	
+	}
+	//忘记密码板块
+	public function forgetPassword(Request $request)
+	{
+		return $this->fetch('forgetPassword',[
+			'title' => '找回密码',
+		]);
+	}
+	//username还没传值
+	public function forgetPasswordChk(Request $request)
+	{
+		$email=$request->post('email');
+		$username=Db::table('user')->where('email',$email)->value('username');
+
+		return $this->fetch('forgetPasswordFile',[
+			'title' => '找回密码',
+			'username' => $username,
+			'email' => $email
+		]); 
+	}
+	public function ChangePassword(Request $request)
+	{
+		$email=$request->post('email');
+		$password=md5($request->post('password'));
+
+		$res=Db::table('user')->where("username",$username)->update(['password' => $password]);
+
+		if($res){
+			echo '<script>alert("修改密码成功");</script>';
+			return $this->fetch("login",[
+				'title' => '登录页面'
+			]);
+		}else{
+			echo '<script>alert("修改密码失败");</script>';
+			return $this->fetch("login",[
+				'title' => '登录页面'
+			]);
+		}
+	}
+}

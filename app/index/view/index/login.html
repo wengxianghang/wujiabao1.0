@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+ <head>
+	<meta charset="utf-8">
+	{include file="common/title" /}
+	<link rel="stylesheet" href="__STATIC__/css/login.css" type="text/css" />
+	<style type="text/css"></style>
+ </head>
+ <body>
+  <div class="login">
+	<div class="login_top">
+		<img src="__STATIC__/images/white_logo.png" style="width:120px;height:90px;margin-left:10%;margin-top:0.8%;">
+	</div>
+	<div class="login_center">
+		<div class="login_center_login">
+			<div class="login_center_login_top"><p>密码登录</p></div>
+			<form action="loginChk" method="post" onsubmit="return checkPsw()" >
+				<div class="login_center_login_username">
+					<table>
+						<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+						<tr class="f1">
+							<td><img src="__STATIC__/images/name.jpg" width="35px" height="35px" style="padding-top:5px;"></td>
+							<td><input type="text" name="username" id="username" placeholder="用户名"></td>
+						</tr>
+						<tr><td style="color:#ff0000;font-size:8px" colspan="2" id="warning">&nbsp;</td></tr>
+						<tr class="f1">
+							<td><img src="__STATIC__/images/pword.jpg" width="35px" height="35px" style="padding-top:5px;"></td>
+							<td>
+								<input type="password" name="password" id="password" placeholder="密码" onblur="checkPsw()" disabled=true>
+							</td>
+						</tr>
+						<tr>
+							<td style="color:#ff0000;font-size:8px" id="warnings">{$warn|default="&nbsp"}</td>
+							<td style="color:#ff0000;font-size:8px;"><span id="t2">&nbsp;</span></td>
+						</tr>
+						<tr><td colspan="2"><input type="submit" name="submit" id="submit" value="登 录"></td></tr>
+						<tr><td colspan="2" class="forget">
+								<a href="{:url('Index/index/reg')}">立即注册</a> | <a href="{:url('Index/index/forgetPassword')}">忘记密码?</a>
+						</td></tr>
+						<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+					</table>
+				</div>
+			</form>
+		</div>
+	</div>
+	  <div class="lian_jie" style="margin-top:8px;">
+		  <p style="text-align:center;">
+			  <a href="{:url('Index/index/index')}">首页</a>&nbsp;|&nbsp;<a href="#">9.9块包邮</a>&nbsp;|&nbsp;
+			  <a href="#">0.1+1.1</a>&nbsp;|&nbsp;<a href="#">今日精选</a>&nbsp;|&nbsp;
+			  <a href="#">明日精选</a>&nbsp;|&nbsp;<a href="#">购物分享</a>&nbsp;|&nbsp;
+		  </p>
+	  </div>
+	  <div class="index_footer" style="font-size:12px;margin-top:0px;text-align:center;padding-top:10px;">
+		  无价宝 粤ICP备19027898号-1 Copyright &copy; 2019 - 2020 www.wjiabao.cn --潮汕学院菜鸟工作室
+		  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277039079'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277039079%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+	  </div>
+  </div>
+ </body>
+ <script>
+ 		//获取控件
+		var username=document.getElementById('username');
+		//实例化引入XHR请求
+		username.onblur=function(){
+			var xhr=new XMLHttpRequest();
+
+			xhr.open("POST","{:url('Index/index/loginCheck_username')}");
+
+			var data="username="+document.getElementById('username').value;
+			xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+			xhr.send(data);
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState === 4 && xhr.status === 200){
+					if(xhr.responseText == 0){
+						//用户不存在就显示
+						var warning=document.getElementById('warning');
+						warning.innerHTML='新用户,请先注册在登录';
+						document.getElementById('submit').disabled=true;
+					}else{
+						var warning=document.getElementById('warning');
+						warning.innerHTML="&nbsp";
+						document.getElementById('password').disabled=false;
+						document.getElementById('submit').disabled=true;
+
+						var password=document.getElementById('password');
+						password.onblur=function(){
+							if(document.getElementById('password').value.length<6){
+								var warnings=document.getElementById('t2');
+								warnings.innerHTML="*不足6位字符";
+								document.getElementById('submit').disabled=true;
+							}else{
+								var warnings=document.getElementById('t2');
+								warnings.innerHTML="&nbsp";
+								document.getElementById('submit').disabled=false;
+							}
+						}
+
+					}
+				}
+			}
+		}
+ </script>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<!--title-->
+	{include file="common/title" /}
+
+	{load href="__STATIC__/css/index.css" /}
+	{load href="__STATIC__/css/collocation.css" /}
+	{load href="__STATIC__/js/01.js"/}
+	{load href="__STATIC__/js/shortcut.js"/}
+	{load href="__STATIC__/js/collocation.js"/}
+	<script type="text/javascript"></script>
+	<style type="text/css"></style>
+ </head>
+ <body>
+	<div class="index">
+		<!--logo-->
+		<div class="logo" style="position:absolute;margin-top:35px;margin-left:13.5%;height:70px;width:150px;">
+			<img src="__STATIC__/images/logo.png" style="width:120px;height:90px">
+		</div>
+
+		<!--bannner+搜索框-->
+		{include file="common/banner"}
+
+		<!--导航栏-->
+		{include file="common/nav" /}
+
+		<!--二级导航栏+轮播图-->
+		{include file="common/subnav" /}
+
+
+
+		<!--内容板块-->
+		{include file="common/content" /}
+
+
+		<!--关于我们-->
+		{include file="common/about" /}
+
+
+		<!--版权-->
+		{include file="common/footer" /}
+
+		<!--回到顶部板块-->
+		<div id="index_shortcut">
+			<div id="index_shortcut_top"></div>
+		</div>
+
+		<!--客服中心-->
+		<div class="index_service">
+			<div class="index_service_top">
+				<a href="#"><img src="__STATIC__/images/keyu.jpg" style="width:80px;height:80px;"></a>
+			</div>
+		</div>
+   </div>
+ </body>
+</html>

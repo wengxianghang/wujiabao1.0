@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+{include file="common/title" /}
+  <title>Document</title>
+	 <link rel="stylesheet" href="__STATIC__/css/reg.css" type="text/css" />
+  <style type="text/css"></style>
+ </head>
+ <body>
+  <div class="reg">
+		<div class="reg_top">
+			<img src="__STATIC__/images/white_logo.png" style="width:120px;height:90px;margin-left:9.5%;margin-top:0.8%;">
+		</div>
+		<div class="reg_center">
+			<div class="reg_form">
+				<div class="reg_form_top"><p style="font-size:16px;">注册账号</p></div>
+				<div class="reg_form_center">
+					<form action="regChk" method="POST">
+						<table>
+							<tr><td  style="color:#ff0000;font-size:8px" id="meat">&nbsp{$warn|default="&nbsp"}</td></tr>
+							<tr><td  style="color:#ff0000;font-size:8px" id="codeError">&nbsp;</td></tr>
+							<tr><td><input type="text" id="email" name="email" placeholder="邮箱号"></td></tr>
+							<tr><td  style="color:#ff0000;font-size:8px" id="warning">&nbsp;</td></tr>
+							<tr><td class="f1">
+								<input type="text" id="email_code" name="email_code" placeholder="验证码">
+								&nbsp;<input type="button" name="button" id="button"  value="获取验证码">
+							</td></tr>
+							<tr><td style="color:#ff0000;font-size:8px" id="warnings">&nbsp;</td></tr>
+							<tr><td><input type="submit" name="submit" id="submit" disabled=true></td></tr>
+							<tr><td class="f2" align=right><a href="{:url('Index/index/login')}">立即登录?</a></td></tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	  <div class="lian_jie" style="margin-top:8px;">
+		  <p style="text-align:center;">
+			  <a href="{:url('Index/index/index')}">首页</a>&nbsp;|&nbsp;<a href="#">9.9块包邮</a>&nbsp;|&nbsp;
+			  <a href="#">0.1+1.1</a>&nbsp;|&nbsp;<a href="#">今日精选</a>&nbsp;|&nbsp;
+			  <a href="#">明日精选</a>&nbsp;|&nbsp;<a href="#">购物分享</a>&nbsp;|&nbsp;
+		  </p>
+	  </div>
+	  <div class="index_footer" style="font-size:12px;margin-top:0px;text-align:center;padding-top:10px;">
+		  无价宝 粤ICP备19027898号-1 Copyright &copy; 2019 - 2020 www.wjiabao.cn --潮汕学院菜鸟工作室
+		  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277039079'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277039079%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+	  </div>
+  </div>
+ </body>
+ <script>
+ 		//获取控件
+		var email=document.getElementById('email');
+		var button=document.getElementById("button");
+		//实例化引入XHR请求
+		email.onblur=function(){
+			//判断邮箱格式是否正确
+			var pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+			if (pattern.test(document.getElementById('email').value)==false)
+			{
+				var meat=document.getElementById('meat');
+				meat.innerHTML='邮箱格式不对';				
+				document.getElementById('submit').disabled=true;
+				button.disabled=true;				
+			}else{
+				//去除警告字语 发送验证码
+				var meats=document.getElementById('meat');
+				meats.innerHTML='&nbsp';
+
+				var xhr=new XMLHttpRequest();
+				xhr.open("POST","{:url('Index/index/email')}");
+				var data="email="+document.getElementById('email').value;
+				xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+				xhr.send(data);
+				xhr.onreadystatechange=function(){
+					//判断http协议的状态值
+					if(xhr.readyState === 4 && xhr.status === 200){
+						if(xhr.responseText == 0){
+							//用户不存在就显示
+							var warning=document.getElementById('warning');
+							warning.innerHTML='邮箱号已注册,请换一个邮箱';
+							document.getElementById('submit').disabled=true;
+							button.disabled=true;
+						}else{
+							var warning=document.getElementById('warning');
+							warning.innerHTML="&nbsp";
+							button.disabled=false;
+
+							/*给邮箱发验证码和验证*/
+							button.onclick=function(){
+								var warnings=document.getElementById('warnings');
+								warnings.innerHTML="验证码在垃圾箱里面";
+								var xhrs=new XMLHttpRequest();
+								xhrs.open("POST","{:url('Index/index/emailCode')}");
+								var data="email="+document.getElementById('email').value;
+								xhrs.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+								xhrs.send(data);
+								xhrs.onreadystatechange=function(){
+									if(xhrs.readyState === 4 && xhrs.status === 200){
+										//验证填写验证码和返回值是否一样
+										var submit=document.getElementById('submit');
+										document.getElementById('submit').disabled=false;
+										submit.onclick=function(){
+										if(xhrs.responseText==document.getElementById('email_code').value){
+												
+											}else{
+												document.getElementById('submit').disabled=true;
+												var codeError=document.getElementById('codeError');
+												codeError.innerHTML='验证码错误请重新输入在提交';									
+											}						
+										}
+									}else{
+										document.getElementById('submit').disabled=true;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+ </script>
+</html>
